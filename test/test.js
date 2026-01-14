@@ -1,10 +1,10 @@
-const assert = require('assert');
-const sinon = require('sinon');
+import assert from 'assert';
+import sinon from 'sinon';
+import sanitizeHtml from '../index.js';
 
 describe('sanitizeHtml', function() {
-  let sanitizeHtml;
   it('should be successfully initialized', function() {
-    sanitizeHtml = require('../index.js');
+    assert.ok(sanitizeHtml);
   });
   it('should escape self closing tags', () => {
     assert.equal(sanitizeHtml('before <img src="test.png" /> after', {

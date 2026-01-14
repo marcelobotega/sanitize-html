@@ -1,9 +1,9 @@
-const htmlparser = require('htmlparser2');
-const escapeStringRegexp = require('escape-string-regexp');
-const { isPlainObject } = require('is-plain-object');
-const deepmerge = require('deepmerge');
-const parseSrcset = require('parse-srcset');
-const { parse: postcssParse } = require('postcss');
+import * as htmlparser from 'htmlparser2';
+import escapeStringRegexp from 'escape-string-regexp';
+import { isPlainObject } from 'is-plain-object';
+import deepmerge from 'deepmerge';
+import parseSrcset from 'parse-srcset';
+import { parse as postcssParse } from 'postcss';
 // Tags that can conceivably represent stand-alone media.
 const mediaTags = [
   'img', 'audio', 'video', 'picture', 'svg',
@@ -59,8 +59,6 @@ function stringifySrcset(parsedSrcset) {
     );
   }).join(', ');
 }
-
-module.exports = sanitizeHtml;
 
 // A valid attribute name.
 // We use a tolerant definition based on the set of strings defined by
@@ -954,3 +952,5 @@ sanitizeHtml.simpleTransform = function(newTagName, newAttribs, merge) {
     };
   };
 };
+
+export default sanitizeHtml;
